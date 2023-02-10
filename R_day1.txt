@@ -1,0 +1,614 @@
+    1  pwd
+    2  ls -a
+    3  cd /project/obds/dloi
+    4  pwd
+    5  cd ../..
+    6  ls
+    7  cd /project/obds/dloi/
+    8  mkdir 1_linux
+    9  cd 1_linux/
+   10  cp -r /project/obds/shared/resources/1_linux/1_linux_intro ./
+   11  ls
+   12  ls -a
+   13  findpath manpage.txt
+   14  filepath manpage.txt
+   15  fullpath manpage.txt
+   16  fp manpage.txt
+   17  ls
+   18  cd ..
+   19  ls
+   20  cd 1_linux/
+   21  ls
+   22  cd 1_linux_intro/
+   23  ls
+   24  less manpage.txt 
+   25  head manpage.txt 
+   26  more manpage.txt 
+   27  less manpage.txt 
+   28  ls -l manpage.txt 
+   29  chmod go-r manpage.txt 
+   30  ll manpage.txt 
+   31  cd ~
+   32  mkdir obds
+   33  ls
+   34  cd obds
+   35  cp /project/obds/shared/resources/1_linux/1_linux_intro/manpage.txt copy.txt
+   36  ll
+   37  ls
+   38  nano copy.txt 
+   39  head copy.txt 
+   40  mv copy.txt edit.txt
+   41  ls
+   42  pwd
+   43  fp
+   44  realpath edit.txt
+   45  cd /project/obds/dloi/1_linux/1_linux_intro/
+   46  ls
+   47  ln -s /Filers/home/d/dloi/obds/edit.txt softlink.txt
+   48  ls
+   49  ll
+   50  cd /Filers/home/d/dloi/obds
+   51  ls
+   52  ln /Filers/home/d/dloi/obds/edit.txt hardlink.txt
+   53  ll
+   54  rm -i *.txt
+   55  cd ..
+   56  rmdir obds/
+   57  cd /project/obds/dloi/1_linux/1_linux_intro/
+   58  ls
+   59  rm softlink.txt 
+   60  ls
+   61  cd ..
+   62  ls
+   63  ll
+   64  cd 1_linux_intro/
+   65  ls
+   66  tar xzf dnase1.tar.gz 
+   67  ll
+   68  wc -l ./bed/*.bed
+   69  cd ./bed/
+   70  ls
+   71  less brain_dnase1.bed 
+   72  wc -l *.bed
+   73  head -n5 cpg.bed
+   74  gzip cpg.bed 
+   75  ls
+   76  head -n5 cpg.bed.gz 
+   77  zless cpg.bed.gz 
+   78  gunzip cpg.bed.gz 
+   79  ll
+   80  grep "chr5" cpg.bed > cpg_chr5.bed
+   81  head cpg_chr5.bed 
+   82  tail cpg_chr5.bed 
+   83  grep -v "chr5" cpg.head > cpg_nochr5.bed
+   84  grep -v "chr5" cpg.bed > cpg_nochr5.bed
+   85  grep -c "chr5" cpg_nochr5.bed 
+   86  cut -f1 cpg.bed | sort | uniq -c 
+   87  find /databank/raw/hg19_full/ -type f -name "*.fa" | wc -l
+   88  find /databank/raw/hg19_full/ -type f -name "*.fa" -exec wc -l {} \:
+   89  find /datashare/courses/obds/bedfiles -type f -name "*.bed" -exec wc -l {} \;
+   90  history > linux_day1.txt
+   91  exit
+   92  htop
+   93  du -h
+   94  du -h .
+   95  sleep 30
+   96  sleep 100
+   97  bg
+   98  fg
+   99  sleep 100
+  100  bg
+  101  ps
+  102  kill 9641
+  103  sleep 100
+  104  bg
+  105  sleep 100
+  106  bg
+  107  sleep 100
+  108  bg
+  109  ps
+  110  killall sleep
+  111  jobs
+  112  htop
+  113  du -h ~
+  114  htop
+  115  du -hs
+  116  htop
+  117  tree
+  118  ls
+  119  pwd
+  120  cd /project/
+  121  ls
+  122  cd cribbslab/
+  123  cd ..
+  124  ls
+  125  cd home
+  126  ls
+  127  cd d
+  128  ls
+  129  cd dloi
+  130  ls
+  131  cp /project/obds/shared/resources/1_linux/2_linux_config/.bashrc ./
+  132  ls
+  133  ll
+  134  ls -a
+  135  nano .bashrc
+  136  la
+  137  source .bashrc
+  138  la
+  139  cp /project/obds/shared/resources/1_linux/2_linux_config/.inputrc ~/
+  140  ls -a
+  141  cat .inputrc 
+  142  cd ~/.ssh
+  143  cd ..
+  144  exit
+  145  module avail
+  146  module load bio/fastqc
+  147  module load fastqc
+  148  which fastqc
+  149  echo $PATH
+  150  module unload fastqc
+  151  echo $PATH
+  152  which R
+  153  module load apps/R/3.6.2
+  154  module avail
+  155  module load R-obds/2021
+  156  echo $PATH
+  157  which R-obds/2021
+  158  module unload R-obds/2021
+  159  cd /project/obds/<user>/1_linux
+  160  cd /project/obds/dloi/1_linux
+  161  ls
+  162  mkdir 2_rnaseq
+  163  ls
+  164  cd 2_rnaseq/
+  165  mkdir 1_fastq 2_genome
+  166  ls
+  167  cd 1_fastq/
+  168  ln -s /project/obds/shared/resources/1_linux/rnaseq/*85_1.fastq.gz
+  169  ls
+  170  ln -s /project/obds/shared/resources/1_linux/rnaseq/*85_2.fastq.gz
+  171  ls
+  172  ll
+  173  pwd
+  174  cp /project/obds/shared/resources/1_linux/rnaseq/md5sum.txt ./
+  175  ls
+  176  md5sum -c md5sum.txt
+  177  ls
+  178  cd ..
+  179  ls
+  180  cd 2_genome/
+  181  nohup wget ftp://ftp.ensembl.org/pub/release-102/fasta/mus_musculus/dna//Mus_musculus.GRCm38.dna.primary_assembly.fa.gz &
+  182  nohup wget ftp://ftp.ensembl.org/pub/release-102/gtf/mus_musculus//Mus_musculus.GRCm38.102.gtf.gz &
+  183  jobs
+  184  nano readme.txt
+  185  cd ..
+  186  ls
+  187  mkdir 3_analysis
+  188  ls
+  189  mkdir 1_fastqc
+  190  ls
+  191  rm -r 1_fastqc
+  192  ls
+  193  cd 3_analysis/
+  194  ls
+  195  mkdir 1_fastqc
+  196  ls
+  197  touch rnaseq_commands_dloi.sh
+  198  ls
+  199  jobs
+  200  cd ..
+  201  ls
+  202  cd ..
+  203  ls
+  204  cd 2_rnaseq/
+  205  cd 2_genome/
+  206  jobs
+  207  ls
+  208  cd ..
+  209  ls
+  210  cd 1_linux/
+  211  ls
+  212  cd 1_linux_intro/
+  213  ls
+  214  cd ..
+  215  ls
+  216  cd ..
+  217  ls
+  218  cd ..
+  219  cd home
+  220  ls
+  221  cd d
+  222  cd dloi/
+  223  ls
+  224  ll
+  225  ls -a
+  226  myobds
+  227  ls
+  228  cd 1_linux/
+  229  ls
+  230  cd 1_linux_intro/
+  231  ls
+  232  cd ..
+  233  ls
+  234  cd ..
+  235  ls
+  236  cd ..
+  237  cd dloi/
+  238  ls
+  239  cd 1_linux/
+  240  ls
+  241  history > linux_day2.txt
+  242  head linux_day2.txt 
+  243  exit
+  244  curl -o Miniconda.sh https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh 
+  245  bash Miniconda.sh -b -p obds_conda
+  246  source ~/obds_conda/etc/profile.d/conda.sh
+  247  which conda
+  248  conda activate base
+  249  which conda
+  250  nano ~/.bashrc
+  251  conda_activate_base
+  252  nano ~/.bashrc
+  253  conda_activate_base
+  254  conda --help
+  255  conda info
+  256  conda config --add channels defaults
+  257  conda config --add channels conda-forge
+  258  conda config --add channels bioconda
+  259  conda info
+  260  conda list
+  261  conda update --all
+  262  conda_activate_base
+  263  cat ~/.bashrc
+  264  conda deactivate 
+  265  conda activate
+  266  source ~/.bashrc
+  267  conda_activate_base
+  268  conda search mamba
+  269  conda list mamba
+  270  which mamba
+  271  conda list mamba
+  272  conda activate
+  273  conda list mamba
+  274   conda_activate_base
+  275  conda list mamba
+  276  conda install mamba
+  277  conda list mamba
+  278  which mamba
+  279  nano ~/.bashrc
+  280  mamba install samtools
+  281  mamba remove samtools
+  282  mamba env --help
+  283  mamba env list
+  284  mamba env list --help
+  285  mamba create -n peaktools
+  286  mamba env list
+  287  source ~/.bashrc
+  288  mamba activate peaktools
+  289  cat .bashrc 
+  290  mamba_activate_base
+  291  mamba activate peaktools
+  292  mamba env list
+  293  mamba list
+  294  conda list
+  295  conda list mamba
+  296  mamba_activate_base
+  297  mamba activate peaktools
+  298  which mamba
+  299  mamba list
+  300  mamba install deeptools macs2
+  301  macs2 --help
+  302  deeptools --help
+  303  which macs2
+  304  mamba create -n ngstools samtools bedtools
+  305  conda activate ngstools
+  306  samtools --help
+  307  bedtools --help
+  308  mamba deactivate
+  309  mamba remove --name ngstools --all
+  310  mamba env list
+  311  mamba deactivate
+  312  mamba remove --name peaktools --all
+  313  mamba env list
+  314  mamba env create -f /project/obds/shared/resources/1_linux/3_conda/obds-rnaseq.yml
+  315  mamba env list
+  316  conda activate obds-rnaseq
+  317  python --version
+  318  mamba list
+  319  less /project/obds/shared/resources/1_linux/3_conda/obds-rnaseq.yml
+  320  cd 
+  321  mamba env export -n obds-rnaseq
+  322  mamba env export -n obds-rnaseq -f obds-rnaseq.yml
+  323  mamba deactivate
+  324  mamba activate 
+  325  conda_activate_base
+  326  mamba_activate_base 
+  327  ls
+  328  mamba env list
+  329  mamba activate obds-rnaseq
+  330  mamba deactivate 
+  331  nano .bashrc
+  332  mamba activate obds-rnaseq
+  333  ls
+  334  cd ..
+  335  ls
+  336  cd project
+  337  ls
+  338  cd obds/
+  339  ls
+  340  cd dloi/
+  341  ls
+  342  cd 1_linux/
+  343  ls
+  344  cd 2_rnaseq/
+  345  ls
+  346  cd 1_fastq/
+  347  ls
+  348  cd ..
+  349  ls
+  350  cd 3_analysis/
+  351  ls
+  352  cd 1_fastqc/
+  353  ls
+  354  fastqc ../../1_fastq/ERR1755085_*.fastq.gz 
+  355  ls
+  356  cd ..
+  357  ls
+  358  cd 1_fastq/
+  359  ls
+  360  mv ERR1755085_1_fastqc.html ../3_analysis/1_fastqc/
+  361  ls
+  362  mv ERR1755085_2_fastqc.html ../3_analysis/1_fastqc/
+  363  ls
+  364  mv ERR1755085_*_fastqc.zip ../3_analysis/1_fastqc/
+  365  ls
+  366  cd ..
+  367  ls
+  368  cd 3_analysis/
+  369  ls
+  370  cd 1_fastqc/
+  371  ls
+  372  pwd
+  373  multiqc -help
+  374  multiqc -n ERR1755085_multiqc -o . ERR1755085_*_fastqc.html
+  375  multiqc -n ERR1755085_multiqc .
+  376  cd ..
+  377  histroy > /t1-data/project/obds/dloi/1_linux/linux_day3.txt
+  378  history > /t1-data/project/obds/dloi/1_linux/linux_day3.txt
+  379  htop
+  380  mamba_activate_base 
+  381  mamba env list
+  382  mamba activate obds-rnaseq
+  383  cd ..
+  384  ls
+  385  cd project/
+  386  ls
+  387  cd obds/
+  388  ls
+  389  cd dloi/
+  390  ls
+  391  cd 1_linux/
+  392  ls
+  393  cd 2_rnaseq/
+  394  ls
+  395  cd 3_analysis/
+  396  ls
+  397  nano hisat2_dloi.sh
+  398  less /t1-data/project/obds/shared/resources/1_linux/4_slurm/slurm_template.sh
+  399  nano hisat2_dloi.sh 
+  400  module avail
+  401  nano hisat2_dloi.sh 
+  402  sbatch hisat2_dloi.sh 
+  403  watch squeue --me
+  404  nano hisat2_dloi.sh 
+  405  ls
+  406  less 4927387_hisat2_dloi.sh.err 
+  407  nano hisat2_dloi.sh 
+  408  sbatch hisat2_dloi.sh 
+  409  watch squeue --me
+  410  ls
+  411  less 4927391_hisat2_dloi.sh.err 
+  412  nano hisat2_dloi.sh 
+  413  sbatch hisat2_dloi.sh 
+  414  ls
+  415  pwd
+  416  watch squeue --me
+  417  exit
+  418  mamba_activate_base 
+  419  mamba env list
+  420  mamba activate ovds-rnaseq
+  421  mamba activate obds-rnaseq
+  422  ls
+  423  cd /t1-data/project/obds/dloi/1_linux/2_rnaseq/3_analysis
+  424  ls
+  425  less ERR1755085_dloi.sam 
+  426  less ERR1755085_dloi_stats.txt 
+  427  tar -tvf sps-4927398.tar.gz 
+  428  cat 4927398_hisat2_dloi.sh.out 
+  429  ls -lrt
+  430  ls
+  431  which samtools
+  432  samtools view -b ERR1755085_dloi.sam > ERR1755085_dloi.bam
+  433  bg
+  434  head -100 ERR1755085_dloi.sam 
+  435  top
+  436  samtools sort --help
+  437  ls
+  438  cp hisat2_dloi.sh samtools_sort_dloi.sh
+  439  nano samtools_sort_dloi.sh 
+  440  module avail
+  441  nano samtools_sort_dloi.sh 
+  442  top
+  443  ls
+  444  jobs
+  445  samtools sort --help
+  446  nano samtools_sort_dloi.sh 
+  447  sbatch samtools_sort_dloi.sh 
+  448  watch squeue --me
+  449  nano samtools_sort_dloi.sh 
+  450  ls
+  451  less 4927480_samtools_sort_dloi.sh.err 
+  452  nano samtools_sort_dloi.sh 
+  453  sbatch samtools_sort_dloi.sh 
+  454  watch squeue
+  455  squeue
+  456  watch squeue --me
+  457  ls
+  458  samtools index sorted_ERR1755085_dloi.bam
+  459  bg
+  460  jobs
+  461  samtools flagstat sorted_ERR1755085_dloi.bam > sorted_ERR1755085_dloi.flagstat
+  462  samtools idxstats sorted_ERR1755085_dloi.bam > sorted_ERR1755085_dloi.idxstats
+  463  ls
+  464  which picard
+  465  cp samtools_sort_dloi.sh picard_dloi.sh
+  466  nano picard_dloi.sh 
+  467  module avail
+  468  nano picard_dloi.sh 
+  469  sbatch picard_dloi.sh 
+  470  watch squeue --me
+  471  nano picard_dloi.sh 
+  472  ls
+  473  less 4927527_picard_dloi.sh.err
+  474  nano picard_dloi.sh 
+  475  sbatch picard_dloi.sh 
+  476  watch squeue --me
+  477  multiqc --help
+  478  watch squeue --me
+  479  l
+  480  ls
+  481  multiqc . 
+  482  exit
+  483  ls
+  484  cd /t1-data/project/obds/dloi/1_linux
+  485  history > linux_day4.txt
+  486  exit
+  487  mamba_activate_base 
+  488  mamba env list
+  489  mamba activate obds-rnaseq
+  490  cd /t1-data/project/obds/dloi/1_linux/2_rnaseq/3_analysis
+  491  ls
+  492  multiqc . 
+  493  which featureCounts 
+  494  featureCounts --help
+  495  cp picard_dloi.sh featureCounts_dloi.sh
+  496  nano featureCounts_dloi.sh 
+  497  module avail
+  498  nano featureCounts_dloi.sh 
+  499  sbatch featureCounts_dloi.sh 
+  500  watch squeue --me
+  501  ls
+  502  less 4927716_featureCounts_dloi.sh.err
+  503  nano featureCounts_dloi.sh 
+  504  sbatch featureCounts_dloi.sh 
+  505  watch squeue --me
+  506  nano featureCounts_dloi.sh 
+  507  sbatch featureCounts_dloi.sh 
+  508  watch squeue --me
+  509  ls
+  510  less featureCounts_output.tsv
+  511  multiqc .
+  512  mamba env list
+  513  mamba_activate_base 
+  514  mamba env lists
+  515  mamba env list
+  516  mamba activate obds-rnaseq
+  517  cd /t1-data/project/obds/dloi/1_linux/2_rnaseq/3_analysis
+  518  mkdir 2_mapping 3_quantification
+  519  ls
+  520  ln -s /t1-data/project/obds/dloi/1_linux/2_rnaseq/3_analysis/2_mapping/sorted_ERR1755085_dloi.bam
+  521  ls
+  522  ln -s /t1-data/project/obds/dloi/1_linux/2_rnaseq/3_analysis/2_mapping/sorted_ERR1755085_dloi.bam.bai
+  523  mamba_activate_base 
+  524  mamba env list
+  525  mamba activate obds-rnaseq
+  526  cd /t1-data/project/obds/dloi/1_linux/2_rnaseq/3_analysis
+  527  ls
+  528  mkdir 2b_pseudoalign
+  529  cd 2b_pseudoalign/
+  530  ls
+  531  cp /t1-data/project/obds/dloi/1_linux/2_rnaseq/3_analysis/featureCounts_dloi.sh .
+  532  ls
+  533  cp /t1-data/project/obds/dloi/1_linux/2_rnaseq/3_analysis/featureCounts_dloi.sh ./
+  534  cd /t1-data/project/obds/dloi/1_linux/2_rnaseq/3_analysis/3_quantification/featureCounts_dloi.sh ./
+  535  ls
+  536  cp /t1-data/project/obds/dloi/1_linux/2_rnaseq/3_analysis/3_quantification/featureCounts_dloi.sh ./kallisto_dloi.sh
+  537  ls
+  538  nano kallisto_dloi.sh 
+  539  sbatch kallisto_dloi.sh 
+  540  watch squeue --me
+  541  ls
+  542  less 4928157_kallisto_dloi.sh.err 
+  543  ls
+  544  mkdir transcriptome
+  545  ls
+  546  cd transcriptome/
+  547  wget https://ftp.ensembl.org/pub/release-108/fasta/mus_musculus/cdna/Mus_musculus.GRCm39.cdna.all.fa.gz
+  548  ls
+  549  cd ..
+  550  ls
+  551  nano kallisto_dloi.sh 
+  552  sbatch kallisto_dloi.sh 
+  553  ls
+  554  less 4928168_kallisto_dloi.sh.err 
+  555  nano kallisto_dloi.sh 
+  556  sbatch kallisto_dloi.sh 
+  557  less kallisto_dloi.sh 
+  558  ls
+  559  cp kallisto_dloi.sh kallisto_quant_dloi.sh
+  560  nano kallisto_quant_dloi.sh 
+  561  sbatch kallisto_quant_dloi.sh 
+  562  watch squeue --me
+  563  ls
+  564  cd output/
+  565  ls
+  566  cd ..
+  567  ls
+  568  history > linux_day5.txt
+  569  exit
+  570   git --version
+  571   echo 5D4E3EBD && echo $HISTCONTROL && /usr/bin/env && echo 611D5ED9
+  572  pwd
+  573  ls -a
+  574  less .bashrc 
+  575  ssh-keygen -t ecdsa -b 521
+  576  cat ~/.ssh/id_ecdsa.pub
+  577  git
+  578  git config --global user.name
+  579  git config --global user.name "Danson Loi"
+  580  git config --global user.email "lscdanson@gmail.com"
+  581  mamba_activate_base 
+  582  cd ..
+  583  ls
+  584  cd project
+  585  ls
+  586  cd obds/
+  587  ls
+  588  cd dloi/
+  589  mkdir git
+  590  ls
+  591  cd git/
+  592  git clone git@github.com:lscdanson/OBDS_R.git
+  593  ls
+  594  cd OBDS_R/
+  595  ls
+  596  nano .gitignore
+  597  cat .gitignore 
+  598  ls -a
+  599  git status
+  600  git add .gitignore
+  601  git stat
+  602  git status
+  603  git commit -m "Added .gitignore file"
+  604  git remote -v
+  605  git push
+  606  git log --all --graph --oneline
+  607  git show f6e4270
+  608  git pull
+  609  git status
+  610  git log
+  611  git log --all --graph --oneline
+  612  l
+  613  ls
+  614  history > R_day1.txt
