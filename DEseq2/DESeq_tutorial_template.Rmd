@@ -526,11 +526,13 @@ MGI_symbols <- mapIds(org.Mm.eg.db, row.names(shrunkenLFC_dds_results_df), "MGI"
 ENTREZID_symbols <- mapIds(org.Mm.eg.db, row.names(shrunkenLFC_dds_results_df), "ENTREZID", "ENSEMBL")
 SYMBOL_symbols <- mapIds(org.Mm.eg.db, row.names(shrunkenLFC_dds_results_df), "SYMBOL", "ENSEMBL")
 
+
 # add mapId vectors to  shrunkenLFC_dds_results_df
 shrunkenLFC_dds_results_df$MGI <- MGI_symbols
 shrunkenLFC_dds_results_df$ENTREZID <- ENTREZID_symbols
 shrunkenLFC_dds_results_df$SYMBOL <- SYMBOL_symbols
 
+shrunkenLFC_dds_results_df$ensemblID <- rownames(shrunkenLFC_dds_results_df)
 
 ```
 
