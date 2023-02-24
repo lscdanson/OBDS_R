@@ -439,7 +439,7 @@ plotDecontXMarkerPercentage(
 - Visualize the log-normalised expression of marker genes before and after decontamination as a violin plot; use `plotDecontXMarkerExpression()`.
 
 ```{r, fig.width=10, fig.height=10}
-set.seed(1)
+
 sce_decontX <- logNormCounts(sce_decontX, name="decontXlogcounts", assay.type="decontXcounts") 
 assays(sce_decontX) 
 
